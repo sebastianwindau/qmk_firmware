@@ -25,12 +25,21 @@ enum layers{
   FN2,
 };
 
+/**
+    "{KC_LCTL,KC_LSFT,KC_R}", LCTL(LSFT(KC_R)) 0--
+    "{KC_LCTL,KC_LSFT,KC_D}", LCTL(LSFT(KC_D)) 1--
+    "{KC_LALT,KC_LGUI,KC_R}", LALT(LGUI(KC_R)) 2 --
+    "{KC_LGUI,KC_R}",         LGUI(KC_R)       3
+    "{KC_LGUI,KC_F2}",        LGUI(KC_F2)      4--
+    "{KC_LGUI,KC_T}https{KC_LSFT,KC_DOT}{KC_LSFT,KC_7}{KC_LSFT,KC_7}access.gridscale.dev{KC_LSFT,KC_7}web{KC_LSFT,KC_7}cluster{KC_LSFT,KC_7}access.gridscale.dev{KC_LSFT,KC_7}resources{KC_ENT}" 5
+*/
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT_69_iso(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,            KC_DEL,
-        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_HOME,
+        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      DF(FN2),
         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,             KC_PGUP,
-        KC_LSFT,  KC_NUBS,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,            KC_RSFT,  KC_UP,    KC_PGDN,
+        KC_LSFT,  KC_GRV,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,            KC_RSFT,  KC_UP,    KC_PGDN,
         KC_LCTL,  KC_LOPTN, KC_LCMMD,                               KC_SPC,                                 KC_RCMMD,MO(MAC_FN1),MO(FN2), KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [WIN_BASE] = LAYOUT_69_iso(
@@ -55,9 +64,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,                                _______,                                _______,  _______,  _______,  _______,  _______,  _______),
 
     [FN2] = LAYOUT_69_iso(
-        KC_TILD,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  BAT_LVL,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,
-        _______,  _______,  _______,                                _______,                                _______,  _______,  _______,  _______,  _______,  _______),
+        KC_TILD,  KC_F1,                   KC_F2,             KC_F3,       KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,  _______,                 _______,
+        _______,  LALT(LGUI(KC_R)),        KC_F7,             KC_F8,  LGUI(KC_R),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      DF(MAC_BASE),
+        _______,  LCTL(LSFT(KC_R)),  LGUI(KC_F2),  LCTL(LSFT(KC_D)),     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                 _______,
+        _______,  _______,               _______,           _______,     _______,  _______,  BAT_LVL,  _______,  _______,  _______,  _______,  _______,            _______,  _______,       _______,
+        _______,  _______,               _______,                                            _______,                                _______,  _______,  _______,  _______,  _______,       _______),
 };
