@@ -17,7 +17,7 @@
 #include QMK_KEYBOARD_H
 
 enum custom_keycodes {
-    QMKBEST =CK_TELE,
+    CK_TELE = SAFE_RANGE,
 };
 
 // clang-format off
