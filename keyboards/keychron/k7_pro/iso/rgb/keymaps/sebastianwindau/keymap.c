@@ -75,7 +75,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CK_TELE:
             if (record->event.pressed) {
-                SEND_STRING(SS_LGUI("t") "https://access.gridscale.dev/web/login?redirect_uri=https://access.gridscale.dev/web" SS_TAP(KC_ENT));
+                SEND_STRING(SS_LGUI("t") "https://access.gridscale.dev/web/login?redirect_uri=https://access.gridscale.dev/web" SS_TAP(X_ENT));
             }
         return false;
     }
