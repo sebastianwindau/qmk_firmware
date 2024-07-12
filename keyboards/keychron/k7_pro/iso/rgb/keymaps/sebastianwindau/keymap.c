@@ -17,12 +17,6 @@
 #include QMK_KEYBOARD_H
 #include "sendstring_german_mac_iso.h"
 
-enum custom_keycodes {
-    CUSTOM_CODES=SAFE_RANGE,
-    CUS_TELE,
-    CUS_GITF,
-};
-
 // clang-format off
 enum layers{
   MAC_BASE,
@@ -30,6 +24,11 @@ enum layers{
   MAC_FN1,
   WIN_FN1,
   FN2,
+};
+
+enum my_keycodes {
+    CUS_TELE=NEW_SAFE_RANGE,
+    CUS_GITF,
 };
 
 /**
