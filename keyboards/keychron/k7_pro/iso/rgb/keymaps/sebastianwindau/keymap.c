@@ -82,7 +82,7 @@ void change_color_led_matrix_layer_fn2_user(void) {
 	rgb_matrix_set_color(4, 0xff, 0xff, 0xff);
 	rgb_matrix_set_color(5, 0xff, 0xff, 0xff);
 	rgb_matrix_set_color(6, 0xff, 0xff, 0xff);
-	rgb_matrix_set_color(7, 0xff, 0xff, 0xf);
+	rgb_matrix_set_color(7, 0xff, 0xff, 0xff);
 	rgb_matrix_set_color(8, 0xff, 0xff, 0xff);
 	rgb_matrix_set_color(9, 0xff, 0xff, 0xff);
 	rgb_matrix_set_color(10, 0xff, 0xff, 0xff);
@@ -97,6 +97,22 @@ void change_color_led_matrix_layer_fn2_user(void) {
 	rgb_matrix_set_color(31, 0xff, 0x00, 0x00);
 	rgb_matrix_set_color(32, 0xff, 0xff, 0x00);
 	rgb_matrix_set_color(38, 0x00, 0xff, 0x00);
+}
+
+void change_color_led_matrix_layer_fn1_user(void) {
+     rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_empty_effect);
+     rgb_matrix_set_color(1, 0x00, 0x00, 0xff);
+     rgb_matrix_set_color(2, 0x00, 0x00, 0xff);
+     rgb_matrix_set_color(3, 0xff, 0xff, 0xff);
+     rgb_matrix_set_color(4, 0xff, 0xff, 0xff);
+     rgb_matrix_set_color(5, 0xff, 0xff, 0xff);
+     rgb_matrix_set_color(6, 0xff, 0xff, 0xff);
+     rgb_matrix_set_color(7, 0x00, 0xff, 0x00);
+     rgb_matrix_set_color(8, 0x00, 0xff, 0x00);
+     rgb_matrix_set_color(9, 0x00, 0xff, 0x00);
+     rgb_matrix_set_color(10, 0xff, 0x00, 0x00);
+     rgb_matrix_set_color(11, 0xff, 0x00, 0x00);
+     rgb_matrix_set_color(12, 0xff, 0x00, 0x00);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -125,6 +141,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 			//rgb_matrix_mode(RGB_MATRIX_CYCLE_LEFT_RIGHT);
 			//rgb_matrix_set_color_all(0x00, 0xff, 0xff);
     		break;
+		case MAC_FN1:
+			change_color_led_matrix_layer_fn1_user();
+			break;
 		default:
 			//change_color_led_matrix_user();
     		rgb_matrix_mode(RGB_MATRIX_CYCLE_LEFT_RIGHT);
